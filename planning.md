@@ -15,7 +15,14 @@ const showsSchema = new Schema ({
     name: String,
     genres: String,
     officialSite: String,
-    network: {
+});
+
+const Shows = mongoose.model("Shows", showsSchema);
+module.exports = Shows;
+
+
+const summarySchema = new Schema ({
+      network: {
         name: String
     },
     image: {
@@ -24,27 +31,5 @@ const showsSchema = new Schema ({
     summary: String
 });
 
-const Shows = mongoose.model("Shows", showsSchema);
-module.exports = Shows;
-
-
-# Cast Model
-
-const mongoose = require("../db/connection");
-const Schema = mongoose.Schema;
-
-const CastSchema = new Schema ({
-    id: String,
-    url: String,
-    name: String,
-    country: {
-        name:String
-    },
-    birthday: Number,
-    deathday: String,
-    gender: String,
-    
-});
-
-const Cast = mongoose.model("Cast", castSchema);
-module.exports = Cast;
+const Summary = mongoose.model("Summary", summarySchema);
+module.exports = Summary;
